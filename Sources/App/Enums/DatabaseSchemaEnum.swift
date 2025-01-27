@@ -14,4 +14,7 @@ enum DatabaseSchemaEnum: String {
     case retweets
     case blacklist
     case blocked
+    case followers
+    case likes
+    
 }

@@ -12,5 +12,5 @@ protocol MyTweetProtocol {
     associatedtype model
     associatedtype userID
     
-    static func getMyTweetsbyID(_ req: Request, _ id: userID) async throws -> [model]
+    static func getMyObjectsbyID(_ req: Request, _ id: userID) async throws -> [model]
 }

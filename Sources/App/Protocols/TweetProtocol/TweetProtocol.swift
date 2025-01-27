@@ -57,7 +57,7 @@ extension TweetProtocol {
 }
 
 extension TweetProtocol {
-    static func getMyTweetsbyID(_ req: Request, _ id: userID) async throws -> [model] {
+    static func getMyObjectsbyID(_ req: Request, _ id: userID) async throws -> [model] {
         let tweets = try await TweetModel.query(on: req.db)
             .filter(\.$id == id)
             .filter(\.$status == StatusEnum.published.rawValue)

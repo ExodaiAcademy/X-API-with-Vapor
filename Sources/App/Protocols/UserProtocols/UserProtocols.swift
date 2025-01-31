@@ -17,7 +17,7 @@ extension UserProtocols {
         if checkUser != true {
             throw Abort(.internalServerError, reason: "User with email of \(dto.email) does already exist")
         } else {
-            let newUser = UserModel(username: dto.username, password: dto.password, email: dto.email)
+            let newUser = UserModel(username: dto.username, password: dto.password, email: dto.email, role: RoleEnum.user.rawValue)
             try await newUser.create(on: req.db)
         }
         return .ok

@@ -9,7 +9,7 @@ import Foundation
 import Vapor
 import Fluent
 
-protocol RetweetProtocol: HelperProtocols, MyTweetProtocol, CRUDProtocols where createDTO == CreateReTweetDTO, updateDTO == UpdateReTweetDTO, model == RetweetModel, id == RetweetModel.IDValue, userID == UserModel.IDValue {
+protocol RetweetProtocol: HelperProtocols, MyTweetProtocol, CRUDProtocols where createDTO == CreateRetweetDTO, updateDTO == UpdateRetweetDTO, model == RetweetModel, id == RetweetModel.IDValue, userID == UserModel.IDValue {
     
 }
 
@@ -24,12 +24,6 @@ extension RetweetProtocol {
         if dto.content.count == 200 {
             throw Abort(.internalServerError, reason: "The tweet is to long")
         } else {
-            if dto.publishDate != nil {
-                status = StatusEnum.planned.rawValue
-            } else {
-                status = StatusEnum.published.rawValue
-            }
-            
             let newRetweet = RetweetModel(tweetID: dto.tweetID, content: dto.content, userID: userID)
             
             try await newRetweet.create(on: req.db)
@@ -50,7 +44,7 @@ extension RetweetProtocol {
 extension RetweetProtocol {
     static func getAllObjects(_ req: Request) async throws -> [model] {
         let retweets = try await RetweetModel.query(on: req.db)
-            .all
+            .all()
         return retweets
     }
 }

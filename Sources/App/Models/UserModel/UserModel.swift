@@ -38,11 +38,14 @@ final class UserModel: Model {
     @OptionalField(key: FieldKeys.headerImage)
     var headerImage: URL?
     
+    @Field(key: FieldKeys.role)
+    var role: RoleEnum.RawValue
+    
     required init() {
         
     }
     
-    init(id: UUID? = nil, username: String, password: String, email: String, createdAt: Date? = nil, updatedAt: Date? = nil, bio: String? = nil, profileImage: URL? = nil, headerImage: URL? = nil) {
+    init(id: UUID? = nil, username: String, password: String, email: String, createdAt: Date? = nil, updatedAt: Date? = nil, bio: String? = nil, profileImage: URL? = nil, headerImage: URL? = nil, role: RoleEnum.RawValue) {
         self.id = id
         self.username = username
         self.password = password
@@ -52,6 +55,7 @@ final class UserModel: Model {
         self.bio = bio
         self.profileImage = profileImage
         self.headerImage = headerImage
+        self.role = role
     }
     
     
@@ -82,6 +86,8 @@ final class UserModel: Model {
         @OptionalField(key: FieldKeys.headerImage)
         var headerImage: URL?
         
+        
+        
         required init() {
             
         }
@@ -110,8 +116,35 @@ extension UserModel {
         static var bio: FieldKey {"bio"}
         static var profileImage: FieldKey {"profileImage"}
         static var headerImage: FieldKey {"headerImage"}
+        static var role: FieldKey {"role"}
     }
 }
+
+extension UserModel {
+    struct UserModelMigration: AsyncMigration {
+        func revert(on database: any FluentKit.Database) async throws {
+            try await database.schema(schema).delete()
+        }
+        
+        func prepare(on database: any FluentKit.Database) async throws {
+            try await database.schema(schema)
+                .id()
+                .field(FieldKeys.username, .string, .required)
+                .field(FieldKeys.password, .string, .required)
+                .field(FieldKeys.email, .string, .required)
+                .field(FieldKeys.createdAt, .datetime)
+                .field(FieldKeys.updatedAt, .datetime)
+                .field(FieldKeys.bio, .string)
+                .field(FieldKeys.profileImage, .string)
+                .field(FieldKeys.headerImage, .string)
+                .field(FieldKeys.role, .string, .required)
+                .unique(on: FieldKeys.username)
+                .unique(on: FieldKeys.email)
+                .create()
+        }
+    }
+}
+
 
 extension UserModel {
     func convertToPublic() -> UserModel.Public {

@@ -53,4 +53,23 @@ extension TweetModel {
     }
 }
 
+extension TweetModel {
+    struct TweetModelMigration: AsyncMigration {
+        func prepare(on database: any Database) async throws {
+            try await database.schema(schema)
+                .id()
+                .field(FieldKeys.content, .string, .required)
+                .field(FieldKeys.createdAt, .datetime)
+                .field(FieldKeys.userID, .uuid, .required)
+                .field(FieldKeys.publishDate, .datetime)
+                .field(FieldKeys.status, .string, .required)
+                .create()
+        }
+        
+        func revert(on database: any Database) async throws {
+            try await database.schema(schema).delete()
+        }
+    }
+}
+
 extension TweetModel: TweetProtocol {}

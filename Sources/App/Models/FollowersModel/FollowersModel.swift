@@ -39,4 +39,20 @@ extension FollowersModel {
     }
 }
 
+extension FollowersModel {
+    struct FollowersModelMigration: AsyncMigration {
+        func prepare(on database: any Database) async throws {
+            try await database.schema(schema)
+                .id()
+                .field(FieldKeys.userID, .uuid, .required)
+                .field(FieldKeys.followUserID, .uuid, .required)
+                .create()
+        }
+        
+        func revert(on database: any Database) async throws {
+            try await database.schema(schema).delete()
+        }
+    }
+}
+
 extension FollowersModel: FollowersProtocol {}

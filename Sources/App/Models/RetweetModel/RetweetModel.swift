@@ -16,10 +16,10 @@ final class RetweetModel: Model {
     var id: UUID?
     
     @Field(key: FieldKeys.tweetID)
-    var tweetID: TweetModel.IDvalue
+    var tweetID: TweetModel.IDValue
     
-    @Field(key: FieldKeys.content)
-    var content: String
+    @OptionalField(key: FieldKeys.content)
+    var content: String?
     
     @Field(key: FieldKeys.userID)
     var userID: UserModel.IDValue
@@ -31,7 +31,7 @@ final class RetweetModel: Model {
         
     }
     
-    init(id: UUID? = nil, tweetID: TweetModel.IDvalue, content: String, userID: UserModel.IDValue, createdAt: Date? = nil) {
+    init(id: UUID? = nil, tweetID: TweetModel.IDValue, content: String?, userID: UserModel.IDValue, createdAt: Date? = nil) {
         self.id = id
         self.tweetID = tweetID
         self.content = content
@@ -47,6 +47,25 @@ extension RetweetModel {
         static var content: FieldKey {"content"}
         static var userID: FieldKey {"userID"}
         static var createdAt: FieldKey {"createdAt"}
+    }
+}
+
+extension RetweetModel {
+    struct RetweetModelMigration: AsyncMigration {
+        func prepare(on database: any Database) async throws {
+            try await database.schema(schema)
+                .id()
+                .field(FieldKeys.tweetID, .uuid, .required)
+                .field(FieldKeys.content, .string)
+                .field(FieldKeys.userID, .uuid, .required)
+                .field(FieldKeys.createdAt, .datetime)
+                .create()
+                
+        }
+        
+        func revert(on database: any Database) async throws {
+            try await database.schema(schema).delete()
+        }
     }
 }
 

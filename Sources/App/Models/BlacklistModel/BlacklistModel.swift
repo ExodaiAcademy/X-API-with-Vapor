@@ -51,5 +51,22 @@ extension BlacklistModel {
     }
 }
 
-extension BlacklistModel: BlacklistProtocol {
+extension BlacklistModel {
+    struct BlacklistModelMigration: AsyncMigration {
+        func prepare(on database: any Database) async throws {
+            try await database.schema(schema)
+                .id()
+                .field(FieldKeys.userID, .uuid, .required)
+                .field(FieldKeys.reason, .string, .required)
+                .field(FieldKeys.blacklistedTill, .datetime, .required)
+                .field(FieldKeys.blacklistedUserID, .uuid, .required)
+                .create()
+        }
+        
+        func revert(on database: any Database) async throws {
+            try await database.schema(schema).delete()
+        }
+    }
 }
+
+extension BlacklistModel: BlacklistProtocol {}

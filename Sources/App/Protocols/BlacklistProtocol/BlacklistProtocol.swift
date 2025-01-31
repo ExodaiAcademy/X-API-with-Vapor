@@ -64,7 +64,7 @@ extension BlacklistProtocol {
 }
 
 extension BlacklistProtocol {
-    static func deleteObject(_ req: Request, _ id: id) async throws -> HTTPStatus {
+    static func deleteObject(_ req: Request, id: id) async throws -> HTTPStatus {
         let blacklistItem = try await blackListItemExists(req, id)
         try await blacklistItem.delete(on: req.db)
         return .ok

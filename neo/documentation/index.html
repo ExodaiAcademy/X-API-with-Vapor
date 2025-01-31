@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Responsive Admin Dashboard Template">
+        <meta name="keywords" content="admin,dashboard">
+        <meta name="author" content="stacks">
+        <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        
+        <!-- Title -->
+        <title>Neo - Responsive Admin Dashboard Template</title>
+
+        <!-- Styles -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">
+        <link href="../../neo/theme/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../neo/theme/assets/plugins/font-awesome/css/all.min.css" rel="stylesheet">
+        <link href="../../neo/theme/assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
+
+      
+        <!-- Theme Styles -->
+        <link href="../../neo/theme/assets/css/main.min.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <style>
+          .page-content {
+            padding-top: 0;
+          }
+        </style>
+    </head>
+    <body>
+
+        <div class="page-container">
+            <div class="page-sidebar">
+                <ul class="list-unstyled accordion-menu">
+                  <li>
+                    <a href="#introduction"><i data-feather="home"></i>Introduction</a>
+                  </li>
+                  
+                  <li>
+                    <a href="#"><i data-feather="code"></i>Structure<i class="fas fa-chevron-right dropdown-icon"></i></a>
+                    <ul class="">
+                      <li><a href="#folder"><i class="far fa-circle"></i>Folder Structure</a></li>
+                      <li><a href="#header"><i class="far fa-circle"></i>Header Structure</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#"><i data-feather="git-merge"></i>Customization<i class="fas fa-chevron-right dropdown-icon"></i></a>
+                    <ul class="">
+                      <li><a href="#code"><i class="far fa-circle"></i>Code</a></li>
+                      <li><a href="#fonts"><i class="far fa-circle"></i>Fonts</a></li>
+                      <li><a href="#css"><i class="far fa-circle"></i>CSS Utilities</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#newpage"><i data-feather="edit-2"></i>New Page</a>
+                  </li>
+                  <li>
+                    <a href="#plugins"><i data-feather="codesandbox"></i>Plugins</a>
+                  </li>
+                  <li>
+                    <a href="#support"><i data-feather="help-circle"></i>Support</a>
+                  </li>
+                </ul>
+            </div>
+            <div class="page-content">
+                <div class="main-wrapper">
+                  <div class="row">
+                    <div class="col">
+                      <div class="card" id="introduction">
+                        <div class="card-body">
+                          <h5 class="card-title">Introduction</h5>
+                          <p>
+                            Neo is a premium admin template built on top of Bootstrap 5 Framework<br><br>
+                            The theme is fully responsive and easily customizable. Code is very easy to understand. It's built with pure HTML/CSS and is ready for integrating into any real web application. <br><br>
+                            If you have any questions that are beyond the scope of this help file, please feel free to mail us via our user page contact form <a href="https://themeforest.net/user/stacks">here</a>. Thank you so much!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="card" id="folder">
+                        <div class="card-body">
+                          <h5 class="card-title">Folder Structure</h5>
+                          <pre class="no-m">
+theme/
+├─ assets/
+│    ├─ css/
+│    ├─ images/
+│    ├─ js/
+│    │    └─ pages/
+│    └─ plugins/
+└─ templates/
+     └─ admin/
+    </pre>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="card" id="header">
+                        <div class="card-body">
+                          <h5 class="card-title">Header Structure</h5>
+                          <pre class="no-m">
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;meta name="description" content="Responsive Admin Dashboard Template"&gt;
+&lt;meta name="keywords" content="admin,dashboard"&gt;
+&lt;meta name="author" content="stacks"&gt;
+&lt;!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags --&gt;
+                              
+&lt;!-- Title --&gt;
+&lt;title&gt;Neo - Responsive Admin Dashboard Template&lt;/title&gt;
+                      
+&lt;!-- Styles --&gt;
+&lt;link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet"&gt;
+&lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;
+&lt;link href="../../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;link href="../../assets/plugins/font-awesome/css/all.min.css" rel="stylesheet"&gt;
+&lt;link href="../../assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet"&gt;
+&lt;link href="../../assets/plugins/pace/pace.css" rel="stylesheet"&gt;
+&lt;link href="../../assets/plugins/apexcharts/apexcharts.css" rel="stylesheet"&gt;
+                      
+                            
+&lt;!-- Theme Styles --&gt;
+&lt;link href="../../assets/css/main.min.css" rel="stylesheet"&gt;
+&lt;link href="../../assets/css/custom.css" rel="stylesheet"&gt;
+                      
+&lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;
+&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;
+&lt;!--[if lt IE 9]&gt;
+&lt;script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js">&lt;/script&gt;
+&lt;script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">&lt;/script&gt;
+&lt;![endif]--&gt;
+&lt;/head&gt;
+                          </pre>
+
+                          
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="card" id="code">
+                        <div class="card-body">
+                          <h5 class="card-title">Code</h5>
+                          <p>
+                            All theme CSS files are located in <code>theme/assets/css</code> folder. For your CSS customization you can use <code>theme/assets/css/custom.css</code>. Keep your custom CSS separate. It makes updating the theme easier in future.<br><br>
+
+                            All Javascript files are located in <code>theme/assets/js/</code> folder. Also Page-level Javascript files are located in <code>theme/assets/js/pages/</code> folder and each page has its own Javascript file. For your Javascripts you can use <code>theme/assets/js/custom.js</code>. Keep your custom Javascript separate. It makes updating the theme easier in future.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="card" id="fonts">
+                        <div class="card-body">
+                          <h5 class="card-title">Fonts</h5>
+                          <p>
+                            Neo use Poppins font as primary font for texts. It must be loaded in HTML Head before other CSS files.
+                          </p>
+                          <pre>&lt;link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet"&gt;</pre>
+                            <p>
+                              We also use FontAwesome, Feather Icons and Material Icons.
+                            </p>
+                            
+                          
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="card" id="css">
+                        <div class="card-body">
+                          <h5 class="card-title">CSS Utilities</h5>
+                          <p>All available helper classes in Neo:</p>
+                                        <div class="table-responsive m-b-sm">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Prefix</th>
+                                                        <th>Second Prefix (side)</th>
+                                                        <th>third Prefix</th>
+                                                        <th>Suffix (value)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Margin</td>
+                                                        <td>m</td>
+                                                        <td>t,r,b,l</td>
+                                                        <td>n (only for negative values)</td>
+                                                        <td>xxs, xs, sm, md, lg, xxl</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Padding</td>
+                                                        <td>p</td>
+                                                        <td>v,h (top &amp; bottom, left &amp; right)</td>
+                                                        <td></td>
+                                                        <td>xxs, xs, sm, md, lg, xxl</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p><code>.no-s</code> Removes margins &amp; paddings</p>
+                                        <p><code>.no-m</code> Removes margins</p>
+                                        <p><code>.no-p</code> Removes paddings</p>
+                                        <p><code>.no-p-h</code> Removes paddings from left &amp; right</p>
+                                        <p><code>.no-p-v</code> Removes Paddings from top &amp; bottom</p>
+                                        <hr>
+                                        <p><code>.no-b</code> Removes borders</p>
+                                        <p><code>.b</code> Adds border from all sides</p>
+                                        <p><code>.b-t</code>, <code>.b-r</code>, <code>.b-b</code>, <code>.b-l</code> Adds border from top, right, bottom, left</p>
+                                        <p><code>.b-default</code>, <code>.b-primary</code>, <code>.b-success</code>, <code>.b-info</code>, <code>.b-warning</code>, <code>.b-danger</code> Adds border by contextual colors</p>
+                                        <p><code>.b-2</code>, <code>.b-3</code>, <code>.b-4</code> Border size</p>
+                                        <p><code>.b-n-t</code>, <code>.b-n-r</code>, <code>.b-n-b</code>, <code>.b-n-l</code> Removes border from  top, right, bottom, left</p>
+                                        <hr>
+                                        <p><code>.no-r</code> Removes border radius</p>
+                                        <p><code>.r</code> Adds border radius</p>
+                                        <p><code>.r-t-l</code>, <code>.r-t-r</code>, <code>.r-b-l</code>, <code>.r-b-r</code> Adds border radius From top-left, top-right, bottom-left, bottom-right sides.</p>
+                                        <p class="no-m"><code>.no-r-t-l</code>, <code>.no-r-t-r</code>, <code>.no-r-b-l</code>, <code>.no-r-b-r</code> Removes border radius From top-left, top-right, bottom-left, bottom-right sides.</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="card" id="newpage">
+                        <div class="card-body">
+                          <h5 class="card-title">New Page</h5>
+                          <p>
+                            It's very easy to create a new page with Neo.<br><br>You can use all components that are shown in the live preview. Note, all content should be placed in <code>.main-wrapper</code> to fit the page correctly.<br><br>If you use component that needs some JS codes which are included in component demo page at the end of the HTML body tag, you can just include the same JS file. If you use component that needs an extra plugin to work, you have to include files of this plugins as they are included in the preview page.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="card" id="plugins">
+                        <div class="card-body">
+                          <h5 class="card-title">Plugins</h5>
+                          <div class="table-resposive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Plugin</th>
+                                  <th scope="col">Website</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Apex Charts</td>
+                                  <td><a href="https://apexcharts.com/">https://apexcharts.com/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>BlockUI</td>
+                                  <td><a href="http://malsup.com/jquery/block/">http://malsup.com/jquery/block/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>Bootstrap</td>
+                                  <td><a href="https://getbootstrap.com/">https://getbootstrap.com/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>Chartjs</td>
+                                  <td><a href="https://www.chartjs.org/">https://www.chartjs.org/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>Sparklines</td>
+                                  <td><a href="https://omnipotent.net/jquery.sparkline/">https://omnipotent.net/jquery.sparkline/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>DataTables</td>
+                                  <td><a href="https://datatables.net/">https://datatables.net/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>FontAwesome</td>
+                                  <td><a href="https://fontawesome.com/">https://fontawesome.com/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>FullCalendar</td>
+                                  <td><a href="https://fullcalendar.io/docs">https://fullcalendar.io/docs</a></td>
+                                </tr>
+                                <tr>
+                                  <td>Idle Timer</td>
+                                  <td><a href="https://github.com/thorst/jquery-idletimer/">https://github.com/thorst/jquery-idletimer/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>Jquery</td>
+                                  <td><a href="https://jquery.com/">https://jquery.com/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>PerfectScroll</td>
+                                  <td><a href="https://github.com/mdbootstrap/perfect-scrollbar">https://github.com/mdbootstrap/perfect-scrollbar</a></td>
+                                </tr>
+                                <tr>
+                                  <td>Popper</td>
+                                  <td><a href="https://popper.js.org/">https://popper.js.org/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>TreeJs</td>
+                                  <td><a href="https://www.jstree.com/">https://www.jstree.com/</a></td>
+                                </tr>
+                                <tr>
+                                  <td>Pace</td>
+                                  <td><a href="https://codebyzach.github.io/pace/">https://codebyzach.github.io/pace/</a></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="card" id="support">
+                        <div class="card-body">
+                          <h5 class="card-title">Support</h5>
+                          <p>
+                            Once again, thank you so much for purchasing this template. As mentioned at the beginning, we'd be glad to help you if you have any questions relating to this template. No guarantees, but we'll do our best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                                  
+                </div>
+              
+            </div>
+        
+        <!-- Javascripts -->
+        <script src="../../neo/theme/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="../../neo/theme/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/feather-icons"></script>
+        <script src="../../neo/theme/assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
+        <script src="../../neo/theme/assets/js/main.min.js"></script>
+
+        <script>
+        $( document ).ready(function() {
+          "use strict";
+          $('a[href^="#"]').on('click',function (e) {
+            e.preventDefault();
+        
+            var target = this.hash;
+            var $target = $(target);
+            var scrollTo = $target.offset().top - 20
+
+            $('html, body').stop().animate({
+              'scrollTop': scrollTo
+            }, 100);
+          });
+          $('pre').addClass('prettyprint');
+          prettyPrint();
+        });
+        </script>
+    </body>
+</html>

@@ -38,4 +38,20 @@ extension LikesModel {
     }
 }
 
+extension LikesModel {
+    struct LikesModelMigration: AsyncMigration {
+        func prepare(on database: any Database) async throws {
+            try await database.schema(schema)
+                .id()
+                .field(FieldKeys.userID, .uuid, .required)
+                .field(FieldKeys.likedTweetID, .uuid, .required)
+                .create()
+        }
+        
+        func revert(on database: any Database) async throws {
+            try await database.schema(schema).delete()
+        }
+    }
+}
+
 extension LikesModel: LikesProtocol {}
